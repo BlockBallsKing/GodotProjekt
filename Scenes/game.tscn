@@ -1,5 +1,6 @@
-[gd_scene load_steps=137 format=3 uid="uid://chgil4ryp0p6p"]
+[gd_scene load_steps=139 format=3 uid="uid://chgil4ryp0p6p"]
 
+[ext_resource type="Script" uid="uid://srresmk44kn4" path="res://Scenes/level.gd" id="1_1l0tm"]
 [ext_resource type="Script" uid="uid://4y8582hjemur" path="res://Scenes/player.gd" id="1_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://3vbrbxtjm2fl" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://dhpkju1g2e4u3" path="res://Scenes/character_body_2d.gd" id="2_wowpa"]
@@ -989,6 +990,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmy34"]
 size = Vector2(31, 42.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v158k"]
+size = Vector2(68.2439, 259.455)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
@@ -996,6 +1000,7 @@ size = Vector2(31, 42.5)
 [node name="GegnerHandler" type="Node2D" parent="Game"]
 
 [node name="Level" type="Node2D" parent="Game"]
+script = ExtResource("1_1l0tm")
 
 [node name="Player" type="Node2D" parent="Game/Level"]
 script = ExtResource("1_wrm1d")
@@ -1009,10 +1014,10 @@ sprite_frames = SubResource("SpriteFrames_pmgwn")
 animation = &"idle bot"
 frame_progress = 0.541673
 
+[node name="Camera2D" type="Camera2D" parent="Game/Level/Player/CharacterBody2D"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Level/Player/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_nmy34")
-
-[node name="Camera2D" type="Camera2D" parent="Game/Level/Player/CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Level"]
 show_behind_parent = true
@@ -1023,3 +1028,12 @@ rotation = -3.17301
 scale = Vector2(6.87793, 5.76)
 texture = ExtResource("5_wowpa")
 script = ExtResource("6_i6g32")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Game/Level"]
+top_level = true
+position = Vector2(42, 120)
+rotation = 1.67552
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Level/StaticBody2D"]
+position = Vector2(-24.122, 119.727)
+shape = SubResource("RectangleShape2D_v158k")
