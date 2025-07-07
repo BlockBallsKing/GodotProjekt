@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://chgil4ryp0p6p"]
+[gd_scene load_steps=141 format=3 uid="uid://chgil4ryp0p6p"]
 
 [ext_resource type="Script" uid="uid://4y8582hjemur" path="res://Scripts/Player/player.gd" id="1_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://3vbrbxtjm2fl" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="2_3dryh"]
@@ -989,6 +989,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmy34"]
 size = Vector2(31, 42.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6g32"]
+radius = 74.4648
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1l0tm"]
+radius = 258.521
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v158k"]
+radius = 453.071
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4fw4"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
@@ -1003,7 +1020,7 @@ script = ExtResource("1_wrm1d")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Game/Level/Player"]
 script = ExtResource("2_wowpa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game/Level/Player/CharacterBody2D"]
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="Game/Level/Player/CharacterBody2D"]
 scale = Vector2(2.04167, 1.70313)
 sprite_frames = SubResource("SpriteFrames_pmgwn")
 animation = &"idle bot"
@@ -1021,11 +1038,32 @@ script = ExtResource("5_i6g32")
 
 [node name="Weapons" type="Node2D" parent="Game/Level/Player/CharacterBody2D"]
 
+[node name="Ranges" type="Node2D" parent="Game/Level/Player/CharacterBody2D"]
+
+[node name="kurz" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
+
+[node name="kurzshape" type="CollisionShape2D" parent="Game/Level/Player/CharacterBody2D/Ranges/kurz"]
+shape = SubResource("CircleShape2D_i6g32")
+
+[node name="mittel" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
+
+[node name="mittelshape" type="CollisionShape2D" parent="Game/Level/Player/CharacterBody2D/Ranges/mittel"]
+shape = SubResource("CircleShape2D_1l0tm")
+
+[node name="lang" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
+
+[node name="langshape" type="CollisionShape2D" parent="Game/Level/Player/CharacterBody2D/Ranges/lang"]
+shape = SubResource("CircleShape2D_v158k")
+
+[node name="Attackanimation" type="AnimatedSprite2D" parent="Game/Level/Player/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_h4fw4")
+animation = &"attack"
+
 [node name="Sprite2D" type="Sprite2D" parent="Game/Level"]
 show_behind_parent = true
 light_mask = 16
 visibility_layer = 16
-position = Vector2(-2, -3)
+position = Vector2(-1.19209e-07, -1)
 rotation = -3.17301
 scale = Vector2(6.87793, 5.76)
 texture = ExtResource("5_wowpa")
