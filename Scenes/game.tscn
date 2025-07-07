@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://chgil4ryp0p6p"]
+[gd_scene load_steps=138 format=3 uid="uid://chgil4ryp0p6p"]
 
 [ext_resource type="Script" uid="uid://4y8582hjemur" path="res://Scripts/Player/player.gd" id="1_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://3vbrbxtjm2fl" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="2_3dryh"]
@@ -989,6 +989,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmy34"]
 size = Vector2(31, 42.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6g32"]
+radius = 289.085
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
@@ -1020,6 +1023,17 @@ shape = SubResource("RectangleShape2D_nmy34")
 script = ExtResource("5_i6g32")
 
 [node name="Weapons" type="Node2D" parent="Game/Level/Player/CharacterBody2D"]
+
+[node name="Ranges" type="Node2D" parent="Game/Level/Player/CharacterBody2D"]
+
+[node name="kurz" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Level/Player/CharacterBody2D/Ranges/kurz"]
+shape = SubResource("CircleShape2D_i6g32")
+
+[node name="mittel" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
+
+[node name="lang" type="Area2D" parent="Game/Level/Player/CharacterBody2D/Ranges"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Level"]
 show_behind_parent = true
