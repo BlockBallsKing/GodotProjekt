@@ -12,7 +12,7 @@ extends CharacterBody2D
 
 func _ready():
 	Cam.enabled = true
-	Animator = get_node("AnimatedSprite2D")
+	Animator = get_node("CharacterAnimation")
 
 
 	
@@ -82,3 +82,15 @@ func _process(delta):
 	
 			
 			
+
+
+func _on_kurz_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_mittel_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_lang_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
