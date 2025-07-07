@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3vbrbxtjm2fl" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://dhpkju1g2e4u3" path="res://Scripts/Player/character_body_2d.gd" id="2_wowpa"]
 [ext_resource type="Texture2D" uid="uid://dudwath5gujne" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Walk/walk.png" id="3_wowpa"]
-[ext_resource type="Script" uid="uid://dfb8yr2homidw" path="res://Scenes/run.gd" id="5_i6g32"]
+[ext_resource type="Script" path="res://Scenes/run.gd" id="5_i6g32"]
 [ext_resource type="Texture2D" uid="uid://c6eoyxjg0dt8e" path="res://Sprites/Background_space.png" id="5_wowpa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6g32"]

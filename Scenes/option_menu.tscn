@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmuop7inyjta7"]
+
+[ext_resource type="Script" uid="uid://dtc1ysgauswu8" path="res://Scripts/Scenes/option_menu.gd" id="1_3036b"]
+[ext_resource type="Texture2D" uid="uid://dnxnu04jadxd7" path="res://Sprites/Main Menu/Background/BackgroundMenu.jpg" id="1_ctdjx"]
+[ext_resource type="PackedScene" uid="uid://c0wh2upasht43" path="res://Scenes/main_menu.tscn" id="2_aeafk"]
+[ext_resource type="Texture2D" uid="uid://c3f24d840856l" path="res://Sprites/Main Menu/Buttons/Square Buttons/Square Buttons/Info Square Button.png" id="2_gg4yi"]
+[ext_resource type="Texture2D" uid="uid://b2y8ql7sinamv" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Back Button.png" id="2_s6ou4"]
+[ext_resource type="Texture2D" uid="uid://chmjw4mca6qej" path="res://Sprites/Main Menu/Buttons/Square Buttons/Colored Square Buttons/Info col_Square Button.png" id="3_3036b"]
+[ext_resource type="Texture2D" uid="uid://d1xeiirwyrb4u" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Back  col_Button.png" id="3_xt6yv"]
+
+[node name="OptionMenu" type="Node2D"]
+script = ExtResource("1_3036b")
+scene = ExtResource("2_aeafk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(589, 258)
+scale = Vector2(1.3784, 1.3784)
+texture = ExtResource("1_ctdjx")
+
+[node name="Information" type="TextureButton" parent="Sprite2D"]
+offset_left = 50.058
+offset_top = 183.546
+offset_right = 250.058
+offset_bottom = 383.546
+scale = Vector2(0.106796, 0.106796)
+texture_normal = ExtResource("2_gg4yi")
+texture_hover = ExtResource("3_3036b")
+
+[node name="TextureButton" type="TextureButton" parent="Sprite2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton2" type="TextureButton" parent="Sprite2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="TextureButton" parent="Sprite2D"]
+offset_left = -81.9791
+offset_top = 175.566
+offset_right = 518.021
+offset_bottom = 375.566
+scale = Vector2(0.198777, 0.198777)
+texture_normal = ExtResource("2_s6ou4")
+texture_hover = ExtResource("3_xt6yv")
+
+[connection signal="pressed" from="Sprite2D/Back" to="." method="_on_back_pressed"]
