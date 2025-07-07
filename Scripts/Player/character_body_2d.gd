@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var prevdirection = 0
 @onready var Cam = get_node("Camera2D")
 @onready var bg = get_node("Sprite2D")
+@onready var state = get_node("States").get_child(0)
+
 
 
 
@@ -12,42 +14,39 @@ func _ready():
 	Cam.enabled = true
 	Animator = get_node("AnimatedSprite2D")
 
-func getInput():
-	Vector1 = Input.get_vector("links","rechts","oben","unten")
-	velocity = Vector1 * speed
-	print(velocity)
+
 	
-func Animation():
-	var x = velocity.x > 0
-	var y = velocity.y > 0
-	var z = velocity.x < 0
-	var w = velocity.y < 0
-	var t = velocity.x == 0
-	var r = velocity.y == 0
+func Animation(Animations,velocityt):
+	var x = velocityt.x > 0
+	var y = velocityt.y > 0
+	var z = velocityt.x < 0
+	var w = velocityt.y < 0
+	var t = velocityt.x == 0
+	var r = velocityt.y == 0
 	
 	if x and y:
-		Animator.play("run botright")
+		Animator.play(Animations["botright"])
 		prevdirection = 4
 	elif x and w:
-		Animator.play("run topright")
+		Animator.play(Animations["topright"])
 		prevdirection = 2
 	elif y and z:
-		Animator.play("run botleft")
+		Animator.play(Animations["botleft"])
 		prevdirection = 6
 	elif z and w:
-		Animator.play("run topleft")
+		Animator.play(Animations["topleft"])
 		prevdirection = 8
 	elif x:
-		Animator.play("run right")
+		Animator.play(Animations["right"])
 		prevdirection = 3
 	elif z:
-		Animator.play("run left")
+		Animator.play(Animations["left"])
 		prevdirection = 7
 	elif y:
-		Animator.play("run bot")
+		Animator.play(Animations["bot"])
 		prevdirection = 5
 	elif w:
-		Animator.play("run top")
+		Animator.play(Animations["top"])
 		prevdirection = 1
 	if t and r:
 		match(prevdirection):
@@ -74,9 +73,9 @@ func Animation():
 	
 	
 func _process(delta):
-	
-	getInput()
-	Animation()
+	velocity = state.velocity
+	state.getInput()
+	Animation(state.Animations,state.velocity)
 	move_and_slide()
 	print(global_position)
 	
