@@ -38,28 +38,28 @@ func RunAnimation():
 	var r = velocity.y == 0
 	 
 	if x and y:
-		Animator.play("botright")
+		Animator.play(Run["botright"])
 		prevdirection = 4
 	elif x and w:
-		Animator.play("topright")
+		Animator.play(Run["topright"])
 		prevdirection = 2
 	elif y and z:
-		Animator.play("botleft")
+		Animator.play(Run["botleft"])
 		prevdirection = 6
 	elif z and w:
-		Animator.play("topleft")
+		Animator.play(Run["topleft"])
 		prevdirection = 8
 	elif x:
-		Animator.play("right")
+		Animator.play(Run["right"])
 		prevdirection = 3
 	elif z:
-		Animator.play("left")
+		Animator.play(Run["left"])
 		prevdirection = 7
 	elif y:
-		Animator.play("bot")
+		Animator.play(Run["bot"])
 		prevdirection = 5
 	elif w:
-		Animator.play("top")
+		Animator.play(Run["top"])
 		prevdirection = 1
 	if t and r:
 		match(prevdirection):
