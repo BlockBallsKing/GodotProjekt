@@ -9,9 +9,11 @@ extends CharacterBody2D
 @onready var Level = self.get_parent().get_parent()
 
 @onready var Weapon1pre = preload("res://Scenes/weapon_1.tscn")
+@onready var Weapon2pre = preload("res://Scenes/weapon_2.tscn")
 @onready var Weapon1 = Weapon1pre.instantiate()
+@onready var Weapon2 = Weapon2pre.instantiate()
 @onready var Weapons = get_node("Weapons")
-@onready var ready1 = false
+@onready var Weaponbools = []
 @onready var kurz = []
 @onready var mittel = []
 @onready var lang = []
@@ -19,6 +21,8 @@ extends CharacterBody2D
 @onready var langArea = get_node("Ranges").get_node("lang")
 @onready var mittelArea = get_node("Ranges").get_node("mittel")
 @onready var Shotpre = preload("res://Scenes/shot_1.tscn")
+@onready var Weapon3pre = preload("res://Scenes/weapon_kurz.tscn")
+@onready var Weapon3 = Weapon3pre.instantiate()
 
 
 
@@ -30,12 +34,15 @@ func _ready():
 	
 	Animator = get_node("CharacterAnimation")
 	Weapons.add_child(Weapon1)
+	Weapons.add_child(Weapon2)
+	Weapons.add_child(Weapon3)
+	
 
 
 func getWeaponReady():
 	for child in Weapons.get_children():
-		if ready1 != child.ready2:
-			ready1 = bool(child.ready2)
+		if child.switch != child.ready2:
+			child.switch = bool(child.ready2)
 			getTarget(child)
 		 
 func getTarget(Weapon):
@@ -59,7 +66,7 @@ func getTarget(Weapon):
 			targets = lang.slice(0,Weapon.BaseTargets)
 	print(targets)
 	for x in targets:
-		var y = Shotpre.instantiate()
+		var y = Weapon.shot.instantiate()
 		y.Direction = self.global_position.direction_to(x.global_position)
 		y.position = self.position
 		Level.add_child(y)

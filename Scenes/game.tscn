@@ -1081,3 +1081,9 @@ rotation = 0.253073
 
 [node name="CharacterBody2D2" parent="Game/Level" instance=ExtResource("7_1l0tm")]
 position = Vector2(100, 50)
+
+[node name="CharacterBody2D3" parent="Game/Level" instance=ExtResource("7_1l0tm")]
+position = Vector2(200, 0)
+
+[node name="CharacterBody2D4" parent="Game/Level" instance=ExtResource("7_1l0tm")]
+position = Vector2(200, 70)

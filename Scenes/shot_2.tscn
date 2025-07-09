@@ -1,26 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://bme1mn2bto5hl"]
+[gd_scene load_steps=10 format=3 uid="uid://byahed2wlesv6"]
 
-[ext_resource type="Script" uid="uid://brj7x2yvjidwq" path="res://Scenes/character_body_2d.gd" id="1_kqg0q"]
-[ext_resource type="Texture2D" uid="uid://ucxj7bimiuom" path="res://Sprites/Retro Impact Effect F.png" id="1_oypri"]
+[ext_resource type="Script" uid="uid://cittyr4qji8m0" path="res://Scenes/shot_1.gd" id="1_ulq7q"]
+[ext_resource type="Texture2D" uid="uid://ucxj7bimiuom" path="res://Sprites/Retro Impact Effect F.png" id="2_ieioe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aaqf5"]
-atlas = ExtResource("1_oypri")
+atlas = ExtResource("2_ieioe")
 region = Rect2(0, 1088, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csteu"]
-atlas = ExtResource("1_oypri")
+atlas = ExtResource("2_ieioe")
 region = Rect2(64, 1088, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulq7q"]
-atlas = ExtResource("1_oypri")
+atlas = ExtResource("2_ieioe")
 region = Rect2(0, 1280, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ieioe"]
-atlas = ExtResource("1_oypri")
+atlas = ExtResource("2_ieioe")
 region = Rect2(64, 1280, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0eec"]
-atlas = ExtResource("1_oypri")
+atlas = ExtResource("2_ieioe")
 region = Rect2(128, 1280, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kqg0q"]
@@ -54,13 +54,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5o64u"]
 radius = 4.0
 
-[node name="Shot1" type="CharacterBody2D"]
+[node name="Shot2" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("1_kqg0q")
+script = ExtResource("1_ulq7q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kqg0q")
+animation = &"2"
 offset = Vector2(-1, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

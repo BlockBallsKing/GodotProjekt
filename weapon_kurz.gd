@@ -1,12 +1,12 @@
 extends Node2D
 
 @export var BaseTargets = 10
-@export var BaseRange = "mittel"
+@export var BaseRange = "kurz"
 @export var Name = "Weapon1"
-@export var Freq = 1.0
+@export var Freq = 2
 @export var ready2  = true
 @onready var ShotTimer = get_node("Timer")
-@export var shot = preload("res://Scenes/shot_1.tscn")
+@export var shot = preload("res://Scenes/hit_1.tscn")
 @export var switch = false
 
 func _ready() -> void:
@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 
 
 
+
+	
+
+
 func _on_timer_timeout() -> void:
 	ready2 = not ready2
-	

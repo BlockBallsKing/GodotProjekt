@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready  var Velocity = 5
 
 func  _ready() -> void:
-	Animator.play("2")
+	Animator.play()
 	
 	
 func _process(delta: float) -> void:
