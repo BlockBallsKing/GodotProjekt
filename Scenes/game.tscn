@@ -1075,11 +1075,9 @@ rotation = -3.17301
 scale = Vector2(6.87793, 5.76)
 texture = ExtResource("5_wowpa")
 
-[node name="p" parent="Game/Level" instance=ExtResource("7_1l0tm")]
-position = Vector2(100, 100)
+[node name="CharacterBody2D" parent="Game/Level" instance=ExtResource("7_1l0tm")]
+position = Vector2(100, 0)
+rotation = 0.253073
 
-[node name="p2" parent="Game/Level" instance=ExtResource("7_1l0tm")]
-position = Vector2(-100, -100)
-
-[editable path="Game/Level/p"]
-[editable path="Game/Level/p2"]
+[node name="CharacterBody2D2" parent="Game/Level" instance=ExtResource("7_1l0tm")]
+position = Vector2(100, 50)

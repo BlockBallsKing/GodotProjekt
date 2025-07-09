@@ -57,11 +57,13 @@ func getTarget(Weapon):
 			lang.sort_custom(func(a, b):
 				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
 			targets = lang.slice(0,Weapon.BaseTargets)
+	print(targets)
 	for x in targets:
 		var y = Shotpre.instantiate()
 		y.Direction = self.global_position.direction_to(x.global_position)
 		y.position = self.position
 		Level.add_child(y)
+	
 		
 		
 		

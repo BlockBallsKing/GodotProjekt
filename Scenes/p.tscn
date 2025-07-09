@@ -35,7 +35,6 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_6neh6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-top_level = true
 position = Vector2(0.5, 0)
 scale = Vector2(1.01563, 1)
 sprite_frames = SubResource("SpriteFrames_24lup")
