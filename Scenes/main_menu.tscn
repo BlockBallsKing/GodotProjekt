@@ -4,11 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://chgil4ryp0p6p" path="res://Scenes/game.tscn" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://dabjut4avgpcf" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/New game Button.png" id="3_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://b5ldvgp07nmcm" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="4_ce3w2"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" uid="uid://cjovw6jonfoc6" path="res://Scenes/wobbletexture.gd" id="5_t1dhk"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://pthb6p8njsq7" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Options Button.png" id="5_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://rjpojoj1bfe8" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Options  col_Button.png" id="6_trj04"]
 [ext_resource type="Texture2D" uid="uid://ddjy4edc1beeq" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Exit Button.png" id="7_16hvj"]
 [ext_resource type="Texture2D" uid="uid://ijp1ehf5ffoj" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="8_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://dnxnu04jadxd7" path="res://Sprites/Main Menu/Background/BackgroundMenu.jpg" id="9_trj04"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://bgi33rveqadmy" path="res://Sprites/Main Menu/logo.png" id="10_16hvj"]
+[ext_resource type="Script" uid="uid://m41nc6d3wpfm" path="res://Scenes/wobble.gd" id="11_vr1f0"]
+>>>>>>> Stashed changes
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_28flt")

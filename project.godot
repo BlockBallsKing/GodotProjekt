@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GeilerProjekt"
-run/main_scene="uid://c0wh2upasht43"
+run/main_scene="uid://chgil4ryp0p6p"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
