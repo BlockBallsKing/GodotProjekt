@@ -8,8 +8,8 @@ extends CharacterBody2D
 @onready var state = get_node("States").get_child(0)
 @onready var Level = self.get_parent().get_parent()
 
-@onready var Weapon1pre = preload("res://Scenes/weapon_1.tscn")
-@onready var Weapon2pre = preload("res://Scenes/weapon_2.tscn")
+@onready var Weapon1pre = preload("res://Weapons/weapon_1.tscn")
+@onready var Weapon2pre = preload("res://Weapons/weapon_2.tscn")
 @onready var Weapon1 = Weapon1pre.instantiate()
 @onready var Weapon2 = Weapon2pre.instantiate()
 @onready var Weapons = get_node("Weapons")
@@ -20,8 +20,8 @@ extends CharacterBody2D
 @onready var kurzArea = get_node("Ranges").get_node("kurz")
 @onready var langArea = get_node("Ranges").get_node("lang")
 @onready var mittelArea = get_node("Ranges").get_node("mittel")
-@onready var Shotpre = preload("res://Scenes/shot_1.tscn")
-@onready var Weapon3pre = preload("res://Scenes/weapon_kurz.tscn")
+@onready var Shotpre = preload("res://Weapons/shots/shot_1.tscn")
+@onready var Weapon3pre = preload("res://Weapons/weapon_kurz.tscn")
 @onready var Weapon3 = Weapon3pre.instantiate()
 
 
@@ -47,20 +47,24 @@ func getWeaponReady():
 		 
 func getTarget(Weapon):
 	var targets = []
+	kurz = kurzArea.get_overlapping_bodies()
+	mittel = mittelArea.get_overlapping_bodies()
+	lang  = langArea.get_overlapping_bodies()
 	match(Weapon.BaseRange):
 		"kurz":
-			kurz = kurzArea.get_overlapping_bodies()
+			
 			
 			kurz.sort_custom(func(a, b):
 				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
 			targets = kurz.slice(0,Weapon.BaseTargets)
 		"mittel":
-			mittel = mittelArea.get_overlapping_bodies()
+			
 			mittel.sort_custom(func(a, b):
 				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
 			targets = mittel.slice(0,Weapon.BaseTargets)
+			
 		"lang":
-			lang  = langArea.get_overlapping_bodies()
+			
 			lang.sort_custom(func(a, b):
 				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
 			targets = lang.slice(0,Weapon.BaseTargets)

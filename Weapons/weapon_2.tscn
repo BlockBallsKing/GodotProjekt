@@ -1,12 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://crxaw22uigto5"]
 
-[ext_resource type="Script" uid="uid://ccltwsborkldy" path="res://Scenes/weapon_2.gd" id="1_x5ast"]
+[ext_resource type="Script" uid="uid://ccltwsborkldy" path="res://Weapons/weapon_2.gd" id="1_h8ssb"]
 
 [node name="weapon_2" type="Node2D"]
-script = ExtResource("1_x5ast")
+visible = false
+script = ExtResource("1_h8ssb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

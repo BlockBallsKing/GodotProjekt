@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0wh2upasht43"]
+
+[ext_resource type="Script" uid="uid://cvfab4ttmuv1i" path="res://Scripts/Scenes/change_scene.gd" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://chgil4ryp0p6p" path="res://Scenes/game.tscn" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dabjut4avgpcf" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/New game Button.png" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://b5ldvgp07nmcm" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="4_ce3w2"]
+[ext_resource type="Script" uid="uid://cjovw6jonfoc6" path="res://Scenes/wobbletexture.gd" id="5_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://pthb6p8njsq7" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Options Button.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://rjpojoj1bfe8" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Options  col_Button.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://ddjy4edc1beeq" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Exit Button.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://ijp1ehf5ffoj" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="8_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://dnxnu04jadxd7" path="res://Sprites/Main Menu/Background/BackgroundMenu.jpg" id="9_trj04"]
+[ext_resource type="Texture2D" uid="uid://bgi33rveqadmy" path="res://Sprites/Main Menu/logo.png" id="10_16hvj"]
+[ext_resource type="Script" uid="uid://m41nc6d3wpfm" path="res://Scenes/wobble.gd" id="11_vr1f0"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_28flt")
+scene = ExtResource("2_48xlc")
+
+[node name="New_Game" type="TextureButton" parent="."]
+offset_left = 478.0
+offset_top = 320.0
+offset_right = 1078.0
+offset_bottom = 520.0
+scale = Vector2(0.274112, 0.274112)
+texture_normal = ExtResource("3_1ehe0")
+texture_hover = ExtResource("4_ce3w2")
+script = ExtResource("5_t1dhk")
+
+[node name="Options" type="TextureButton" parent="."]
+offset_left = 478.0
+offset_top = 391.0
+offset_right = 1078.0
+offset_bottom = 591.0
+scale = Vector2(0.274112, 0.274112)
+texture_normal = ExtResource("5_yhxw7")
+texture_hover = ExtResource("6_trj04")
+script = ExtResource("5_t1dhk")
+
+[node name="Exit" type="TextureButton" parent="."]
+offset_left = 476.0
+offset_top = 507.0
+offset_right = 1076.0
+offset_bottom = 707.0
+scale = Vector2(0.274112, 0.274112)
+texture_normal = ExtResource("7_16hvj")
+texture_hover = ExtResource("8_vr1f0")
+script = ExtResource("5_t1dhk")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(589, 258)
+scale = Vector2(1.3784, 1.3784)
+texture = ExtResource("9_trj04")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(556, 139)
+scale = Vector2(0.2535, 0.2535)
+texture = ExtResource("10_16hvj")
+script = ExtResource("11_vr1f0")
+wobble_amount = 0.5
+wobble_speed = 0.5
+
+[connection signal="pressed" from="New_Game" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
