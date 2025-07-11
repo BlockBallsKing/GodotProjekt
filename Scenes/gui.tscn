@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dotoxrelkivdp"]
+
+[ext_resource type="Script" uid="uid://1x7vo2sx1s8a" path="res://Scenes/framerate.gd" id="1_qyd3e"]
+
+[node name="GUI" type="Node2D"]
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 26
+text = "FRAMERATE"
+script = ExtResource("1_qyd3e")

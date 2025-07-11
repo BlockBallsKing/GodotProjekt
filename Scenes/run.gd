@@ -17,7 +17,7 @@ extends Node2D
 func getInput():
 	Vector1 = Input.get_vector("links","rechts","oben","unten")
 	velocity = Vector1 * speed
-	print(velocity)
+	
 	
 func Enter():
 	print("entered" + self.name)

@@ -6,16 +6,78 @@ extends CharacterBody2D
 @onready var Cam = get_node("Camera2D")
 @onready var bg = get_node("Sprite2D")
 @onready var state = get_node("States").get_child(0)
+@onready var Level = self.get_parent().get_parent()
+
+@onready var Weapon1pre = preload("res://Weapons/weapon_1.tscn")
+@onready var Weapon2pre = preload("res://Weapons/weapon_2.tscn")
+@onready var Weapon1 = Weapon1pre.instantiate()
+@onready var Weapon2 = Weapon2pre.instantiate()
+@onready var Weapons = get_node("Weapons")
+@onready var Weaponbools = []
+@onready var kurz = []
+@onready var mittel = []
+@onready var lang = []
+@onready var kurzArea = get_node("Ranges").get_node("kurz")
+@onready var langArea = get_node("Ranges").get_node("lang")
+@onready var mittelArea = get_node("Ranges").get_node("mittel")
+@onready var Shotpre = preload("res://Weapons/shots/shot_1.tscn")
+@onready var Weapon3pre = preload("res://Weapons/weapon_kurz.tscn")
+@onready var Weapon3 = Weapon3pre.instantiate()
+
+
 
 
 
 
 func _ready():
 	Cam.enabled = true
-	Animator = get_node("CharacterAnimation")
-
-
 	
+	Animator = get_node("CharacterAnimation")
+	Weapons.add_child(Weapon1)
+	Weapons.add_child(Weapon2)
+	Weapons.add_child(Weapon3)
+	
+
+
+func getWeaponReady():
+	for child in Weapons.get_children():
+		if child.switch != child.ready2:
+			child.switch = bool(child.ready2)
+			getTarget(child)
+		 
+func getTarget(Weapon):
+	var targets = []
+	kurz = kurzArea.get_overlapping_bodies()
+	mittel = mittelArea.get_overlapping_bodies()
+	lang  = langArea.get_overlapping_bodies()
+	match(Weapon.BaseRange):
+		"kurz":
+			
+			
+			kurz.sort_custom(func(a, b):
+				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
+			targets = kurz.slice(0,Weapon.BaseTargets)
+		"mittel":
+			
+			mittel.sort_custom(func(a, b):
+				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
+			targets = mittel.slice(0,Weapon.BaseTargets)
+			
+		"lang":
+			
+			lang.sort_custom(func(a, b):
+				return a.global_position.distance_to(self.global_position) < b.global_position.distance_to(self.global_position))
+			targets = lang.slice(0,Weapon.BaseTargets)
+	print(targets)
+	for x in targets:
+		var y = Weapon.shot.instantiate()
+		y.Direction = self.global_position.direction_to(x.global_position)
+		y.position = self.position
+		Level.add_child(y)
+	
+		
+		
+		
 func Animation(Animations,velocityt):
 	var x = velocityt.x > 0
 	var y = velocityt.y > 0
@@ -73,24 +135,10 @@ func Animation(Animations,velocityt):
 	
 	
 func _process(delta):
+	getWeaponReady()
 	velocity = state.velocity
 	state.getInput()
+	print(position)
 	Animation(state.Animations,state.velocity)
 	move_and_slide()
-	print(global_position)
 	
-	
-			
-			
-
-
-func _on_kurz_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_mittel_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_lang_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

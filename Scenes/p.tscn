@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmcdyuapeaxdu"]
+
+[ext_resource type="Texture2D" uid="uid://ucxj7bimiuom" path="res://Sprites/Retro Impact Effect F.png" id="1_6neh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6neh6"]
+radius = 37.054
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24lup"]
+atlas = ExtResource("1_6neh6")
+region = Rect2(0, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45mdo"]
+atlas = ExtResource("1_6neh6")
+region = Rect2(64, 960, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24lup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24lup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45mdo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6neh6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(1.01563, 1)
+sprite_frames = SubResource("SpriteFrames_24lup")
+frame_progress = 0.584293
