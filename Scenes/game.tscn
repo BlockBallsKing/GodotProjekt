@@ -1,5 +1,8 @@
+
 [gd_scene load_steps=142 format=3 uid="uid://chgil4ryp0p6p"]
 
+
+[ext_resource type="Script" uid="uid://v2x1oay15hey" path="res://Scenes/gegner_handler.gd" id="1_1l0tm"]
 [ext_resource type="Script" uid="uid://4y8582hjemur" path="res://Scripts/Player/player.gd" id="1_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://3vbrbxtjm2fl" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://dhpkju1g2e4u3" path="res://Scripts/Player/character_body_2d.gd" id="2_wowpa"]
@@ -1012,6 +1015,7 @@ animations = [{
 [node name="Game" type="Node2D" parent="."]
 
 [node name="GegnerHandler" type="Node2D" parent="Game"]
+script = ExtResource("1_1l0tm")
 
 [node name="Level" type="Node2D" parent="Game"]
 
