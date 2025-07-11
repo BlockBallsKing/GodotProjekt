@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcww8afatcp11"]
+
+[ext_resource type="Script" uid="uid://ctgc16lefxqvh" path="res://Scenes/enemy_01.gd" id="1_l51d3"]
+[ext_resource type="Texture2D" uid="uid://bgi33rveqadmy" path="res://Sprites/Main Menu/logo.png" id="2_0c6qi"]
+
+[node name="enemy01" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_l51d3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13, -2)
+scale = Vector2(0.161621, 0.186523)
+texture = ExtResource("2_0c6qi")
