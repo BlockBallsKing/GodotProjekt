@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0wh2upasht43"]
 
 [ext_resource type="Script" uid="uid://cvfab4ttmuv1i" path="res://Scripts/Scenes/change_scene.gd" id="1_28flt"]
-[ext_resource type="PackedScene" uid="uid://fkqejfvrsmlj" path="res://Scenes/game.tscn" id="2_48xlc"]
+[ext_resource type="PackedScene" uid="uid://chgil4ryp0p6p" path="res://Scenes/game.tscn" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://dabjut4avgpcf" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/New game Button.png" id="3_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://b5ldvgp07nmcm" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="4_ce3w2"]
 [ext_resource type="Script" uid="uid://cjovw6jonfoc6" path="res://Scenes/wobbletexture.gd" id="5_t1dhk"]
