@@ -1,12 +1,50 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmuop7inyjta7"]
+[gd_scene load_steps=19 format=3 uid="uid://cmuop7inyjta7"]
 
-[ext_resource type="Script" uid="uid://dtc1ysgauswu8" path="res://Scripts/Scenes/option_menu.gd" id="1_3036b"]
+[ext_resource type="Script" path="res://Scripts/Scenes/option_menu.gd" id="1_3036b"]
 [ext_resource type="Texture2D" uid="uid://dnxnu04jadxd7" path="res://Sprites/Main Menu/Background/BackgroundMenu.jpg" id="1_ctdjx"]
 [ext_resource type="PackedScene" uid="uid://c0wh2upasht43" path="res://Scenes/main_menu.tscn" id="2_aeafk"]
 [ext_resource type="Texture2D" uid="uid://c3f24d840856l" path="res://Sprites/Main Menu/Buttons/Square Buttons/Square Buttons/Info Square Button.png" id="2_gg4yi"]
 [ext_resource type="Texture2D" uid="uid://b2y8ql7sinamv" path="res://Sprites/Main Menu/Buttons/Large Buttons/Large Buttons/Back Button.png" id="2_s6ou4"]
 [ext_resource type="Texture2D" uid="uid://chmjw4mca6qej" path="res://Sprites/Main Menu/Buttons/Square Buttons/Colored Square Buttons/Info col_Square Button.png" id="3_3036b"]
 [ext_resource type="Texture2D" uid="uid://d1xeiirwyrb4u" path="res://Sprites/Main Menu/Buttons/Large Buttons/Colored Large Buttons/Back  col_Button.png" id="3_xt6yv"]
+[ext_resource type="Script" path="res://Scenes/wobbletexture.gd" id="8_h8r5p"]
+[ext_resource type="Script" uid="uid://c7qoagfik8s6j" path="res://Scenes/h_slider.gd" id="9_8nwj0"]
+[ext_resource type="Texture2D" uid="uid://d01hpsebqpiwi" path="res://Sprites/Main Menu/Buttons/Square Buttons/Square Buttons/Music Square Button.png" id="9_ikvg2"]
+[ext_resource type="Texture2D" uid="uid://dnwm7ucf2gr8l" path="res://Sprites/Main Menu/Buttons/Square Buttons/Square Buttons/Audio Square Button.png" id="10_6ni7c"]
+[ext_resource type="PackedScene" uid="uid://dotoxrelkivdp" path="res://Scenes/gui.tscn" id="12_6ni7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikvg2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_ikvg2"]
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_6ni7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv1ki"]
+bg_color = Color(0.592157, 0.592157, 0.592157, 0.384314)
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_0rxwe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut6oe"]
+bg_color = Color(0.592157, 0.592157, 0.592157, 0.384314)
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
 
 [node name="OptionMenu" type="Node2D"]
 script = ExtResource("1_3036b")
@@ -26,6 +64,7 @@ offset_bottom = 383.546
 scale = Vector2(0.106796, 0.106796)
 texture_normal = ExtResource("2_gg4yi")
 texture_hover = ExtResource("3_3036b")
+script = ExtResource("8_h8r5p")
 
 [node name="TextureButton" type="TextureButton" parent="Sprite2D"]
 offset_right = 40.0
@@ -43,5 +82,64 @@ offset_bottom = 375.566
 scale = Vector2(0.198777, 0.198777)
 texture_normal = ExtResource("2_s6ou4")
 texture_hover = ExtResource("3_xt6yv")
+script = ExtResource("8_h8r5p")
+
+[node name="MusicButton" type="TextureButton" parent="."]
+offset_left = 393.0
+offset_top = 210.0
+offset_right = 650.0
+offset_bottom = 425.0
+scale = Vector2(0.285305, 0.285305)
+texture_normal = ExtResource("9_ikvg2")
+script = ExtResource("8_h8r5p")
+
+[node name="MasterButton" type="TextureButton" parent="."]
+offset_left = 393.0
+offset_top = 144.0
+offset_right = 650.0
+offset_bottom = 359.0
+scale = Vector2(0.285305, 0.285305)
+texture_normal = ExtResource("10_6ni7c")
+script = ExtResource("8_h8r5p")
+
+[node name="Options" type="PanelContainer" parent="."]
+offset_left = 465.0
+offset_top = 145.0
+offset_right = 722.0
+offset_bottom = 281.33
+scale = Vector2(0.89307, 0.89307)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ikvg2")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+theme = SubResource("Theme_ikvg2")
+
+[node name="music" type="Label" parent="Options/OptionsContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music slider" type="HSlider" parent="Options/OptionsContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6ni7c")
+theme_override_styles/slider = SubResource("StyleBoxFlat_sv1ki")
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_8nwj0")
+bus_name = "Music"
+
+[node name="sfx" type="Label" parent="Options/OptionsContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx slider" type="HSlider" parent="Options/OptionsContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0rxwe")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ut6oe")
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_8nwj0")
+bus_name = "SFX"
+
+[node name="GUI" parent="." instance=ExtResource("12_6ni7c")]
 
 [connection signal="pressed" from="Sprite2D/Back" to="." method="_on_back_pressed"]

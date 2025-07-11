@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dcww8afatcp11"]
 
-[ext_resource type="Script" path="res://Scenes/enemy_01.gd" id="1_l51d3"]
+[ext_resource type="Script" uid="uid://ctgc16lefxqvh" path="res://Scenes/enemy_01.gd" id="1_l51d3"]
 [ext_resource type="Texture2D" uid="uid://crx2p0dvmamnj" path="res://Sprites/The Male adventurer - Free/The Male adventurer - Free/Death/death_normal_down.png" id="2_l51d3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l51d3"]
